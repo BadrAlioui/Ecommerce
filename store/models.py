@@ -18,7 +18,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=4, decimal_places=2)
-    image = models.ImageField(upload_to='media/')
+    image = models.ImageField(upload_to='images/')
 
     class Meta:
         verbose_name_plural = 'products'
