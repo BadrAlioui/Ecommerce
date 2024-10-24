@@ -4,7 +4,7 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=255, db_index=True)
     slug = models.SlugField(max_length=255, unique=True)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'categories'
@@ -14,11 +14,11 @@ class Category(models.Model):
 
 class Product(models.Model):
     title = models.CharField(max_length=255)
-    brand = models.CharField(max_length=255)
+    brand = models.CharField(max_length=255, default='unbrand')
     slug = models.SlugField(max_length=255, unique=True)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=4, decimal_places=2)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/', default='default.png')
 
     class Meta:
         verbose_name_plural = 'products'
