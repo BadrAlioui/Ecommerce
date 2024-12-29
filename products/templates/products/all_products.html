@@ -1,29 +1,26 @@
-{% extends 'base.html' %} {% block content %}
-<h1>All products</h1>
+{% extends 'base.html' %}
+{% block content %}
+<h1>All Products</h1>
 <hr>
-{% for product in products %}
 <div class="container">
-  
-    
-    
-    <!-- UTILISER LA GRILLE BOOTSTRAP -->
     <div class="row">
-      <div class="col-lg-4 col-md-6">
-        <div class="card m-3"> <!-- Mettez chaque item dans une carte bootstrap -->
-            <img src="{{ product.image.url }}" alt="image">
-            <div class="card-title" style="min-height: 130px">
-                <h2>{{ product.title}}</h2>
-            <div class="card-body" style="min-height: 130px">
-                <h5>{{ product.description}}</h5>
-            </div>
-            <div class="card-footer">
-                <button type="button" class="btn w-100 btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#echarpeModal">buy</button>
+        {% for product in products %}
+        <div class="col-lg-4 col-md-6">
+            <div class="card m-3"> 
+                <img src="{{ product.image.url }}" alt="{{ product.title }}" class="card-img-top"> 
+                <div class="card-body">
+                    <h2 class="card-title">{{ product.title }}</h2> 
+                    <h5 class="card-text">{{ product.description }}</h5> 
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn w-100 btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#echarpeModal">
+                        Buy
+                    </button>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-
 </div>
-{% endfor %}
 <hr />
 {% endblock %}
-
