@@ -8,6 +8,33 @@ html, body{
 
 .card-img-top{
     width: 100%;
-    height: auto;
+    max-height: 300px;
     object-fit: cover;
+}
+
+
+footer {
+    flex-shrink: 0;
+    padding: 20px;
+    background-color: #78C2AD;
+    color: white;
+    text-align: center;
+    margin-top: 60px;
+}
+
+footer a {
+    margin-right: 15px;
+    color: white;
+    font-size: 1.5em;
+}
+
+/*icon*/
+
+.icon a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.icon a:hover {
+    color: #ddd;
 }
