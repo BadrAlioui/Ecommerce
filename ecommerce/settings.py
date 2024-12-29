@@ -1,5 +1,6 @@
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,10 +14,10 @@ import cloudinary.api
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-40$mmdt9e!m=+1wdsntak&9^ec#&dd+)5ikk+s82*m%^q)^b&%'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
 
@@ -122,8 +123,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'studentinstitute2024@gmail.com'
-EMAIL_HOST_PASSWORD = 'fmve ttzx tcjx luec'  # Utilise un mot de passe d'application
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'studentinstitute2024@gmail.com'
 
 # Default primary key field type
@@ -134,9 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Cloudinary -Django integration
 
 cloudinary.config(
-    cloud_name = "dbi9dhanq",
-    api_key = "778114457955977",
-    api_secret = "GytK3sofNmLZxc3ma8w8rZ-gTDk",
-
-
+    cloud_name=config('CLOUDINARY_CLOUD_NAME'),
+    api_key=config('CLOUDINARY_API_KEY'),
+    api_secret=config('CLOUDINARY_API_SECRET'),
 )
