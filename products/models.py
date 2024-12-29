@@ -22,3 +22,10 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2,
                                 validators=[MinValueValidator(0.1)])
     image = CloudinaryField('image', null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = "products"
+        
+    def __str__(self):
+        return self.title
+
