@@ -10,12 +10,15 @@
             href="https://bootswatch.com/5/minty/bootstrap.min.css"
         />
         <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-        <script src="https://kit.fontawesome.com/d89ffbeb14.js" crossorigin="anonymous"></script>
+        <script
+            src="https://kit.fontawesome.com/d89ffbeb14.js"
+            crossorigin="anonymous"
+        ></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="{% url 'store' %}">Navbar</a>
                 <button
                     class="navbar-toggler"
                     type="button"
@@ -29,33 +32,20 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'home' %}"
-                                >Home
-                                <span class="visually-hidden">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a
                                 class="nav-link dropdown-toggle"
                                 data-bs-toggle="dropdown"
-                                href="#"
+                                href="{% url 'home' %}"
                                 role="button"
                                 aria-haspopup="true"
                                 aria-expanded="false"
-                                >Dropdown</a
+                                >Categories</a
                             >
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="{% url 'home' %}"
+                                    >All</a
+                                >
                                 <a class="dropdown-item" href="#"
                                     >Another action</a
                                 >
@@ -67,6 +57,29 @@
                                     >Separated link</a
                                 >
                             </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact' %}"
+                                >Contact</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                type="button"
+                                role="button"
+                                class="btn btn-outline-secondary"
+                                href="#"
+                                ><i
+                                    class="fa-solid fa-cart-shopping"
+                                    aria-hidden="true"
+                                ></i
+                            ></a>
                         </li>
                     </ul>
                     <!-- <form class="d-flex">

@@ -1,19 +1,29 @@
-{% extends 'base.html' %}
-{% block content %}
-<h1>All Products</h1>
-<hr>
+{% extends 'base.html' %} {% block content %}
+
 <div class="container">
+    <h1 class="mt-3">All Products</h1>
+    <br />
+    <hr />
     <div class="row">
         {% for product in products %}
         <div class="col-lg-3 col-md-6">
-            <div class="card m-3"> 
-                <img src="{{ product.image.url }}" alt="{{ product.title }}" class="card-img-top"> 
+            <div class="card m-3">
+                <img
+                    src="{{ product.image.url }}"
+                    alt="{{ product.title }}"
+                    class="card-img-top"
+                />
                 <div class="card-body">
-                    <h2 class="card-title">{{ product.title }}</h2> 
-                    <h5 class="card-text">{{ product.description }}</h5> 
+                    <h2 class="card-title">{{ product.title }}</h2>
+                    <h5 class="card-text">{{ product.description }}</h5>
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn w-100 btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#echarpeModal">
+                    <button
+                        type="button"
+                        class="btn w-100 btn-outline-secondary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#echarpeModal"
+                    >
                         Buy
                     </button>
                 </div>

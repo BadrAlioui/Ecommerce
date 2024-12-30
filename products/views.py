@@ -8,3 +8,7 @@ def all_products(request):
         'products': products
     }
     return render(request, 'products/all_products.html', context)
+
+
+def store(request):
+    return render(request, 'store.html')
