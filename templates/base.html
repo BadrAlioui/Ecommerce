@@ -36,26 +36,24 @@
                             <a
                                 class="nav-link dropdown-toggle"
                                 data-bs-toggle="dropdown"
-                                href="{% url 'home' %}"
+                                href="{% url 'store' %}"
                                 role="button"
                                 aria-haspopup="true"
                                 aria-expanded="false"
                                 >Categories</a
                             >
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{% url 'home' %}"
+                                <a class="dropdown-item" href="{% url 'all_products' %}"
                                     >All</a
                                 >
-                                <a class="dropdown-item" href="#"
-                                    >Another action</a
+                                
+                                <a class="dropdown-item" href="{% url 't_shirts' %}"
+                                    >Shirts</a
                                 >
-                                <a class="dropdown-item" href="#"
-                                    >Something else here</a
+                                <a class="dropdown-item" href="{% url 'shoes' %}"
+                                    >Shoes</a
                                 >
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"
-                                    >Separated link</a
-                                >
+                                
                             </div>
                         </li>
                         <li class="nav-item">

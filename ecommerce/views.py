@@ -28,3 +28,7 @@ def contact_page(request):
                 request, "Your message has been sent successfully!")
             return redirect('contact')
     return render(request, 'contact.html', {'form': form})
+
+
+def store(request):
+    return render(request, 'store.html')

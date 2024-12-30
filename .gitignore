@@ -1,5 +1,6 @@
 venv
+__pycache__/
 *.pyc
-__pychache__
+
 staticfiles/
 .env
