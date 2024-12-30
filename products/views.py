@@ -11,7 +11,7 @@ def all_products(request):
 
 
 def store(request):
-    return render(request, 'store.html')
+    return render(request, 'products/store.html')
 
 def t_shirts_view(request):
     try:
