@@ -1,7 +1,7 @@
 
 from pathlib import Path
 from decouple import config
-
+from django.contrib.messages import constants as messages
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -17,7 +17,7 @@ import cloudinary.api
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
 
@@ -30,13 +30,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
+    
     'allauth',
     'allauth.account',
     'products',
     
     'cloudinary',
     'widget_tweaks',
+    "authentication",
 ]
 
 MIDDLEWARE = [
@@ -141,12 +142,9 @@ MEDIA_ROOT = BASE_DIR / 'static/media/'
 
 # Authentication
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',       
-    'allauth.account.auth_backends.AuthenticationBackend',    
-]
+LOGOUT_REDIRECT_URL = '/'
 
-SITE_ID = 1
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
