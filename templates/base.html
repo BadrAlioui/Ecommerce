@@ -63,13 +63,20 @@
                                     aria-expanded="false"
                                     >Categories</a
                                 >
-                                <div class="dropdown-menu">
+                                <div
+                                    class="dropdown-menu border-0"
+                                    aria-labelledby="all-products-link"
+                                >
                                     <a
+                                        href="{% url 'all_products' %}?sort=price&direction=asc"
                                         class="dropdown-item"
-                                        href="{% url 'all_products' %}"
-                                        >All</a
+                                        >By Price</a
                                     >
-
+                                    <a
+                                        href="{% url 'all_products' %}?sort=rating&direction=desc"
+                                        class="dropdown-item"
+                                        >By Rating</a
+                                    >
                                     <a
                                         class="dropdown-item"
                                         href="{% url 't_shirts' %}"
