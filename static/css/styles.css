@@ -31,7 +31,7 @@ main {
 
 /* global Forms */
 
-form {
+#form-contact {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 30px;
     border-radius: 15px;
