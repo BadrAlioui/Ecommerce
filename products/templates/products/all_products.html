@@ -6,7 +6,10 @@
             <br />
             <p class="lead text-muted">Browse our extensive collection ...</p>
             <br />
-            <a href="{% url 'login_page' %}" type="button" class="btn btn-primary btn-md my-2"
+            <a
+                href="{% url 'login_page' %}"
+                type="button"
+                class="btn btn-primary btn-md my-2"
                 >Create an account</a
             >
         </div>
@@ -20,30 +23,40 @@
         {% for product in products %}
         <div class="col-lg-3 col-md-6">
             <div class="card m-3">
-                <img
-                    src="{{ product.image.url }}"
-                    alt="{{ product.title }}"
-                    class="card-img-top"
-                />
+                <a href="{% url 'product_detail' product.id %}">
+                    <img
+                        src="{{ product.image.url }}"
+                        alt="{{ product.title }}"
+                        class="card-img-top"
+                    />
+                </a>
                 <div class="card-body">
                     <h5 class="card-text">
                         <a
-                            href="{% url 'product-info' slug=product.slug %}"
+                            href="{% url 'product_detail' product.id %}"
                             class="text-decoration-none text-dark"
                             >{{ product.description }}</a
                         >
                     </h5>
                     <h6>${{product.price}}</h6>
+                    {% if product.rating %}
+                    <small class="text-muted"
+                        ><i class="fas fa-star mr-1"></i>{{ product.rating }} /
+                        5</small
+                    >
+                    {% else %}
+                    <small class="text-muted">No Rating</small>
+                    {% endif %}
                 </div>
                 <div class="card-footer">
-                    <button
+                    <a
+                        href="{% url 'product-info' slug=product.slug %}"
                         type="button"
                         class="btn w-100 btn-outline-secondary"
-                        data-bs-toggle="modal"
                         data-bs-target="#echarpeModal"
                     >
                         Buy
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

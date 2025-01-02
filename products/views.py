@@ -11,6 +11,18 @@ def all_products(request):
     }
     return render(request, 'products/all_products.html', context)
 
+#code institute
+def product_detail(request, product_id):
+    """ A view to show individual product details """
+
+    product = get_object_or_404(Product, pk=product_id)
+
+    context = {
+        'product': product,
+    }
+
+    return render(request, 'products/product_detail.html', context)
+
 def product_info(request, slug):
     product = get_object_or_404(Product, slug=slug)
     context = {'product':product}

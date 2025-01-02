@@ -31,4 +31,7 @@ def contact_page(request):
 
 
 def store(request):
-    return render(request, 'store.html')
+    return render(request, 'store.html',  {
+        'free_shipping_threshold': None,
+    })
+

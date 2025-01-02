@@ -8,7 +8,6 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
-
 }
 
 .card-img-top {
@@ -21,6 +20,13 @@ main {
     flex-grow: 1;
     margin: 0;
     padding: 0;
+}
+
+/* rating */
+
+.fa-star {
+    color: gold;
+    margin-right: 9px;
 }
 
 /* global Forms */

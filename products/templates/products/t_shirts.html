@@ -11,15 +11,17 @@
         {% for product in products %}
         <div class="col-lg-3 col-md-6">
             <div class="card m-3">
-                <img
-                    src="{{ product.image.url }}"
-                    alt="{{ product.title }}"
-                    class="card-img-top"
-                />
+                <a href="{% url 'product_detail' product.id %}">
+                    <img
+                        src="{{ product.image.url }}"
+                        alt="{{ product.title }}"
+                        class="card-img-top"
+                    />
+                </a>
                 <div class="card-body">
                     <h5 class="card-text">
                         <a
-                            href="{% url 'product-info' slug=product.slug %}"
+                            href="{% url 'product_detail' product.id %}"
                             class="text-decoration-none text-dark"
                             >{{ product.description }}</a
                         >

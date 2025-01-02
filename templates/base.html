@@ -16,83 +16,94 @@
         ></script>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'store' %}">Navbar</a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarColor01"
-                    aria-controls="navbarColor01"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarColor01">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                                href="{% url 'store' %}"
-                                role="button"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                >Categories</a
-                            >
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{% url 'all_products' %}"
-                                    >All</a
+        <header>
+            <nav
+                class="navbar navbar-expand-lg bg-primary"
+                data-bs-theme="dark"
+            >
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'store' %}">Navbar</a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarColor01"
+                        aria-controls="navbarColor01"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarColor01">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    data-bs-toggle="dropdown"
+                                    href="{% url 'store' %}"
+                                    role="button"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    >Categories</a
                                 >
-                                
-                                <a class="dropdown-item" href="{% url 't_shirts' %}"
-                                    >Shirts</a
+                                <div class="dropdown-menu">
+                                    <a
+                                        class="dropdown-item"
+                                        href="{% url 'all_products' %}"
+                                        >All</a
+                                    >
+
+                                    <a
+                                        class="dropdown-item"
+                                        href="{% url 't_shirts' %}"
+                                        >Shirts</a
+                                    >
+                                    <a
+                                        class="dropdown-item"
+                                        href="{% url 'shoes' %}"
+                                        >Shoes</a
+                                    >
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'contact' %}"
+                                    >Contact</a
                                 >
-                                <a class="dropdown-item" href="{% url 'shoes' %}"
-                                    >Shoes</a
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'logout' %}"
+                                    >Logout</a
                                 >
-                                
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'contact' %}"
-                                >Contact</a
-                            >
-                        </li>
-                        {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout' %}"
-                                >Logout</a
-                            >
-                        </li>
-                        {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login_page' %}"
-                                >Login</a
-                            >
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'register' %}"
-                                >Sign Up</a
-                            >
-                        </li>
-                        {% endif %}
-                        <li class="nav-item">
-                            <a
-                                type="button"
-                                role="button"
-                                class="btn btn-outline-secondary"
-                                href="#"
-                                ><i
-                                    class="fa-solid fa-cart-shopping"
-                                    aria-hidden="true"
-                                ></i
-                            ></a>
-                        </li>
-                    </ul>
-                    <!-- <form class="d-flex">
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link"
+                                    href="{% url 'login_page' %}"
+                                    >Login</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'register' %}"
+                                    >Sign Up</a
+                                >
+                            </li>
+                            {% endif %}
+                            <li class="nav-item">
+                                <a
+                                    type="button"
+                                    role="button"
+                                    class="btn btn-outline-secondary"
+                                    href="#"
+                                    ><i
+                                        class="fa-solid fa-cart-shopping"
+                                        aria-hidden="true"
+                                    ></i
+                                ></a>
+                            </li>
+                        </ul>
+                        <!-- <form class="d-flex">
                         <input
                             class="form-control me-sm-2"
                             type="search"
@@ -105,16 +116,34 @@
                             Search
                         </button>
                     </form> -->
+                    </div>
+                </div>
+            </nav>
+            <div id="delivery-banner" class="row text-center">
+                <div class="col bg-black text-white">
+                    {% if free_shipping_threshold %}
+                    <h4 class="logo-font my-1">
+                        Free delivery on orders over ${{ free_shipping_threshold
+                        }}!
+                    </h4>
+                    {% else %}
+                    <h4 class="logo-font my-1">
+                        Free delivery on all orders for now!
+                    </h4>
+                    {% endif %}
                 </div>
             </div>
-        </nav>
-        <main>{% block content %}{% if messages %}
+        </header>
+
+        <main>
+            {% block content %}{% if messages %}
             <div>
                 {% for message in messages %}
-                    <p>{{ message }}</p>
+                <p>{{ message }}</p>
                 {% endfor %}
             </div>
-        {% endif %} {% endblock %}</main>
+            {% endif %} {% endblock %}
+        </main>
         <footer>
             <div class="icon text-center text-white">
                 <a
