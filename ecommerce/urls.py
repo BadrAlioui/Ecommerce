@@ -11,6 +11,8 @@ urlpatterns = [
     path('contact/', views.contact_page, name='contact'),
     path('authentication/', include ('authentication.urls')),
     path('', include ('products.urls')),
+    path('', include ('bag.urls')),
+    
     
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

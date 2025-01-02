@@ -35,23 +35,6 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarColor01">
-                        <form
-                            class="d-flex"
-                            method="GET"
-                            action="{% url 'all_products' %}"
-                        >
-                            <input
-                                class="form-control me-sm-2"
-                                type="search"
-                                placeholder="Search"
-                            />
-                            <button
-                                class="btn btn-secondary my-2 my-sm-0"
-                                type="submit"
-                            >
-                                Search
-                            </button>
-                        </form>
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item dropdown">
                                 <a
@@ -119,12 +102,17 @@
                                     type="button"
                                     role="button"
                                     class="btn btn-outline-secondary"
-                                    href="#"
+                                    href="{% url 'view_bag' %}"
                                     ><i
                                         class="fa-solid fa-cart-shopping"
                                         aria-hidden="true"
-                                    ></i
-                                ></a>
+                                    ></i>
+                                    <p class="my-0">
+                                        {% if grand_total %} ${{
+                                        grand_total|floatformat:2 }} {% else %}
+                                        $0.00 {% endif %}
+                                    </p></a
+                                >
                             </li>
                         </ul>
                     </div>

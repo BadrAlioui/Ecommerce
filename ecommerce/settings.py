@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'widget_tweaks',
     "authentication",
+    'bag',
 ]
 
 MIDDLEWARE = [
