@@ -11,7 +11,7 @@ urlpatterns = [
     path('contact/', views.contact_page, name='contact'),
     path('authentication/', include ('authentication.urls')),
     path('', include ('products.urls')),
-    path('', include ('bag.urls')),
+    path('bag/', include ('bag.urls')),
     
     
     
