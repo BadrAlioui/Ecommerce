@@ -19,6 +19,7 @@ class Product(models.Model):
     brand = models.CharField(max_length=250, default='un-branded')
     description = models.TextField()
     slug = models.SlugField(max_length=250)
+    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2,
                                 validators=[MinValueValidator(0.1)])
     image = CloudinaryField('image', null=True, blank=True)
